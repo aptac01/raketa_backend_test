@@ -37,6 +37,7 @@ class ConnectorFacade
                 );
             }
         } catch (RedisException) {
+            $this->logger->error('Error');
         }
 
         if ($isConnected) {

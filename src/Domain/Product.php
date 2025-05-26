@@ -1,20 +1,20 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace Raketa\BackendTestTask\Repository\Entity;
+namespace Raketa\BackendTestTask\Domain;
 
 readonly class Product
 {
     public function __construct(
-        private int $id,
+        private int    $id,
         private string $uuid,
-        private bool $isActive,
+        private bool   $isActive,
         private string $category,
         private string $name,
         private string $description,
         private string $thumbnail,
-        private float $price,
+        private float  $price,
     ) {
     }
 
@@ -56,5 +56,18 @@ readonly class Product
     public function getPrice(): float
     {
         return $this->price;
+    }
+
+    public function getArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'uuid' => $this->getUuid(),
+            'isActive' => $this->isActive(),
+            'category' => $this->getCategory(),
+            'description' => $this->getDescription(),
+            'thumbnail' => $this->getThumbnail(),
+            'price' => $this->getPrice(),
+        ];
     }
 }

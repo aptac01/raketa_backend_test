@@ -47,6 +47,6 @@ class CartManager extends ConnectorFacade
             $this->logger->error('Error');
         }
 
-        return new Cart(session_id(), []);
+        return new Cart(session_id());
     }
 }
